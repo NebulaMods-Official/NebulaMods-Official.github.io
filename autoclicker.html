@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nebula Mods - Auto Clicker</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #10131a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.update-bar {
+    width: 100%;
+    background: #1d2533;
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 2px solid #2f3d52;
+}
+
+.container {
+    margin-top: 80px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 12px rgba(0,150,255,0.5);
+}
+
+h2 {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+.open-btn {
+    background: #2b7cff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 35px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.25s;
+    margin: 8px;
+}
+
+.open-btn:hover {
+    background: #5297ff;
+    transform: scale(1.05);
+}
+
+.open-btn:active {
+    transform: scale(0.98);
+}
+
+#copyStatus {
+    margin-top: 20px;
+    color: #5297ff;
+    font-size: 16px;
+}
+
+.email-bar {
+    width: 100%;
+    background: #1d2533;
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    border-top: 2px solid #2f3d52;
+    margin-top: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="update-bar">
+    Created by: Nebula Mods
+</div>
+
+<div class="container">
+
+    <h1>Auto Clicker</h1>
+    <h2>For Nebula Mods</h2>
+
+    <button class="open-btn" onclick="copyBookmarklet()">
+        Copy Auto Clicker
+    </button>
+
+    <p id="copyStatus"></p>
+
+</div>
+
+<div class="email-bar">
+    Email us! nebula.mods.official@gmail.com
+</div>
+
+<script>
+function copyBookmarklet() {
+
+    const bookmarklet =
+        "javascript:(()=%3E%7Bfetch(%22https%3A//raw.githubusercontent.com/NebulaMods-Official/autoclicker/refs/heads/main/autoclicker.js%22).then(r=%3Er.text()).then(eval).catch(()=%3E%7B%7D)%7D)()";
+
+    navigator.clipboard.writeText(bookmarklet)
+        .then(() => {
+            document.getElementById("copyStatus")
+                .textContent = "Copied successfully!";
+        })
+        .catch(() => {
+            document.getElementById("copyStatus")
+                .textContent = "Clipboard access unavailable.";
+        });
+}
+</script>
+
+</body>
+</html>
